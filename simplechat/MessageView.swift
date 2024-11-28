@@ -7,16 +7,7 @@
 
 import SwiftUI
 
-struct Message : Decodable {
-    let uid: String
-    let text: String
-    let photoURL: String
-    let createdAt: Date
-    
-    func isFromCurrentUser() -> Bool {
-        return true
-    }
-}
+
 
 struct MessageView: View {
     var message: Message
@@ -28,7 +19,7 @@ struct MessageView: View {
                         .padding()
                 }
                 .frame(maxWidth: 250, alignment: .topLeading)
-                .background(.blue)
+                .background(Color(uiColor: .systemBlue))
                 .cornerRadius(20)
                 
                 Image(uiImage: UIImage(named:  "Asuka_Langley_Soryu")!)
@@ -51,7 +42,7 @@ struct MessageView: View {
                         .padding()
                 }
                 .frame(maxWidth: 250, alignment: .leading)
-                .background(.gray)
+                .background(Color(uiColor: .lightGray))
                 .cornerRadius(20)
             }
             .frame(maxWidth: 360,alignment: .leading)
@@ -60,6 +51,6 @@ struct MessageView: View {
 }
 
 #Preview {
-    MessageView(message: Message(uid: "123", text: "我是明日香", photoURL: "", createdAt: Date()))
+    MessageView(message: Message(id: UUID(), uid: "123", text: "我是明日香", photoURL: "", createdAt: Date()))
 }
 
