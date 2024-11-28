@@ -20,10 +20,26 @@ class ChatViewModel: ObservableObject{
 
 struct ChatView: View {
     @StateObject var chatViewModel = ChatViewModel()
+    @State var text = "你好"
     var body: some View {
-        VStack(spacing: 8) {
-            ForEach(chatViewModel.mockData) { message in
-                MessageView(message: message)
+        VStack {
+            ScrollView {
+                VStack(spacing: 8) {
+                    ForEach(chatViewModel.mockData) { message in
+                        MessageView(message: message)
+                    }
+                }
+            }
+            HStack {
+                TextField("hello", text: $text, axis: .vertical)
+                    .padding()
+                    .background(Color(uiColor: .systemMint))
+                Button {
+                    print("send")
+                } label: {
+                    Text("Send")
+                }
+                .padding()
             }
         }
     }
