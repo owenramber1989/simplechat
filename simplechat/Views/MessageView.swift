@@ -22,7 +22,7 @@ struct MessageView: View {
                 .background(Color(uiColor: .systemBlue))
                 .cornerRadius(20)
                 
-                Image(uiImage: UIImage(named:  "Asuka_Langley_Soryu")!)
+                Image(systemName: "person")
                     .resizable()  // 使图片可调整大小
                         .aspectRatio(contentMode: .fit)  // 保持原始纵横比并填充指定的框架
                     .frame(maxWidth: 80, alignment: .top)
