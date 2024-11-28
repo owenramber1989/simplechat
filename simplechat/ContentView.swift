@@ -8,34 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var showSignIn: Bool = true
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            ZStack {
+                ChatView()
+            }
+            .navigationTitle("chatroom")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        print("sign out")
+                    } label: {
+                        Text("Sign Out")
+                            .foregroundColor(.red)
+                    }
+                }
+            }
         }
-        .padding()
+        .fullScreenCover(isPresented: $showSignIn) {
+            Text("快乐聊天")
+        }
     }
 }
 
 #Preview {
-    NavigationStack {
-        ZStack {
-            ChatView()
-        }
-        .navigationTitle("chatroom")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    print("sign out")
-                } label: {
-                    Text("Sign Out")
-                        .foregroundColor(.red)
-                }
-            }
-        }
-    }
-    
+    ContentView()
 }
