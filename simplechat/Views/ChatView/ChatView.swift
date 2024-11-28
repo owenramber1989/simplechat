@@ -7,20 +7,6 @@
 
 import SwiftUI
 
-class ChatViewModel: ObservableObject{
-    
-    @Published var messages = [Message]()
-    
-    @Published var mockData = [
-        Message(id: UUID(), uid: "12345", text: "明日香", photoURL: "", createdAt: Date()),
-        Message(id: UUID(), uid: "12346", text: "碇真嗣", photoURL: "", createdAt: Date()),
-        Message(id: UUID(), uid: "12347", text: "绫波零", photoURL: "", createdAt: Date())
-    ]
-    func sendMessage(text: String) {
-        print(text)
-    }
-}
-
 struct ChatView: View {
     @StateObject var chatViewModel = ChatViewModel()
     @State var text = ""
@@ -37,8 +23,10 @@ struct ChatView: View {
                 TextField("良言一句三冬暖", text: $text, axis: .vertical)
                     .padding()
                 Button {
-                    chatViewModel.sendMessage(text: text)
-                    text = ""
+                    if text.count > 2 {
+                        chatViewModel.sendMessage(text: text)
+                        text = ""
+                    }
                 } label: {
                     Text("Send")
                         .padding()

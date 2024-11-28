@@ -20,5 +20,22 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    NavigationStack {
+        ZStack {
+            ChatView()
+        }
+        .navigationTitle("chatroom")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    print("sign out")
+                } label: {
+                    Text("Sign Out")
+                        .foregroundColor(.red)
+                }
+            }
+        }
+    }
+    
 }
