@@ -28,7 +28,7 @@ struct ContentView: View {
             }
         }
         .fullScreenCover(isPresented: $showSignIn) {
-            Text("快乐聊天")
+            SignInView()
         }
     }
 }

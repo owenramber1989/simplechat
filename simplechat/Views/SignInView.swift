@@ -15,6 +15,7 @@ struct SignInView: View {
                 .frame(maxWidth: 400, maxHeight: 700, alignment: .top)
                 .scaledToFill()
                 .clipped()
+            Spacer()
             VStack(spacing: 10) {
                 Button {
                     print("apple")
@@ -42,8 +43,10 @@ struct SignInView: View {
                                 .frame(width: 300)
                         }
                 }
+                Spacer()
             }
         }
+        .edgesIgnoringSafeArea(.top)
     }
 }
 

@@ -13,7 +13,7 @@ struct MessageView: View {
     var message: Message
     var body: some View {
         if message.isFromCurrentUser() {
-            HStack {
+            HStack(spacing: 15) {
                 HStack {
                     Text(message.text)
                         .padding()
@@ -22,15 +22,13 @@ struct MessageView: View {
                 .background(Color(uiColor: .systemBlue))
                 .cornerRadius(20)
                 
-                Image(systemName: "person")
+                Image("asukaicon")
                     .resizable()  // 使图片可调整大小
-                        .aspectRatio(contentMode: .fit)  // 保持原始纵横比并填充指定的框架
-                    .frame(maxWidth: 80, alignment: .top)
-                    .padding(.bottom, 16)
-                    .padding(.leading, 4)
-                    .cornerRadius(20)
+                    .frame(width: 60, height: 60, alignment: .top)
+                    .cornerRadius(30)
+                    .padding(.leading)
             }
-            .frame(maxWidth: 360,alignment: .leading)
+            .frame(maxWidth: 300,alignment: .leading)
         } else {
             HStack {
                 Image(systemName: "person")
