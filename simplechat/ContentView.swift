@@ -31,12 +31,12 @@ struct ContentView: View {
                     }
                 }
             }
+            .fullScreenCover(isPresented: $showSignIn) {
+                SignInView(showSignIn: $showSignIn)
+            }
         }
         .onAppear {
             showSignIn = AuthManager.shared.getCurrentUser() == nil
-        }
-        .fullScreenCover(isPresented: $showSignIn) {
-            SignInView(showSignIn: $showSignIn)
         }
     }
 }
