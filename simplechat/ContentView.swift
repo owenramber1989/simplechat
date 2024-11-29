@@ -28,7 +28,7 @@ struct ContentView: View {
             }
         }
         .fullScreenCover(isPresented: $showSignIn) {
-            SignInView()
+            SignInView(showSignIn: $showSignIn)
         }
     }
 }

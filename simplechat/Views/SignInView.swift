@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SignInView: View {
+    @Binding var showSignIn: Bool
     var body: some View {
         VStack(spacing: 20) {
             Image("asuka")
@@ -31,7 +32,14 @@ struct SignInView: View {
                         }
                 }
                 Button {
-                    print("google")
+                    AuthManager.shared.signInWithGoogle { result in
+                        switch result {
+                        case .success(_):
+                            showSignIn = false
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                        }
+                    }
                 } label: {
                     Text("Sign in with Google")
                         .padding()
@@ -51,5 +59,5 @@ struct SignInView: View {
 }
 
 #Preview {
-    SignInView()
+    SignInView(showSignIn: .constant(true))
 }

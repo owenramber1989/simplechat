@@ -10,6 +10,8 @@
 		5DF2A9D82CF9BFA00073307D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5DF2A9D72CF9BFA00073307D /* FirebaseAuth */; };
 		5DF2A9DA2CF9BFA00073307D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5DF2A9D92CF9BFA00073307D /* FirebaseFirestore */; };
 		5DF2A9DC2CF9BFA00073307D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 5DF2A9DB2CF9BFA00073307D /* FirebaseStorage */; };
+		5DF2A9E82CF9C2E90073307D /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 5DF2A9E72CF9C2E90073307D /* GoogleSignIn */; };
+		5DF2A9EA2CF9C2E90073307D /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5DF2A9E92CF9C2E90073307D /* GoogleSignInSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +37,22 @@
 		5DF2A96E2CF8A3CC0073307D /* simplechatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = simplechatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		5DF2A9EE2CF9C3530073307D /* Exceptions for "simplechat" folder in "simplechat" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 5DF2A9532CF8A3CA0073307D /* simplechat */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		5DF2A9562CF8A3CA0073307D /* simplechat */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5DF2A9EE2CF9C3530073307D /* Exceptions for "simplechat" folder in "simplechat" target */,
+			);
 			path = simplechat;
 			sourceTree = "<group>";
 		};
@@ -58,7 +73,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DF2A9EA2CF9C2E90073307D /* GoogleSignInSwift in Frameworks */,
 				5DF2A9D82CF9BFA00073307D /* FirebaseAuth in Frameworks */,
+				5DF2A9E82CF9C2E90073307D /* GoogleSignIn in Frameworks */,
 				5DF2A9DA2CF9BFA00073307D /* FirebaseFirestore in Frameworks */,
 				5DF2A9DC2CF9BFA00073307D /* FirebaseStorage in Frameworks */,
 			);
@@ -124,6 +141,8 @@
 				5DF2A9D72CF9BFA00073307D /* FirebaseAuth */,
 				5DF2A9D92CF9BFA00073307D /* FirebaseFirestore */,
 				5DF2A9DB2CF9BFA00073307D /* FirebaseStorage */,
+				5DF2A9E72CF9C2E90073307D /* GoogleSignIn */,
+				5DF2A9E92CF9C2E90073307D /* GoogleSignInSwift */,
 			);
 			productName = simplechat;
 			productReference = 5DF2A9542CF8A3CA0073307D /* simplechat.app */;
@@ -209,6 +228,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				5DF2A9D62CF9BFA00073307D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				5DF2A9E62CF9C2E90073307D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5DF2A9552CF8A3CA0073307D /* Products */;
@@ -413,6 +433,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"simplechat/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = simplechat/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -441,6 +462,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"simplechat/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = simplechat/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -577,6 +599,14 @@
 				minimumVersion = 11.5.0;
 			};
 		};
+		5DF2A9E62CF9C2E90073307D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -594,6 +624,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5DF2A9D62CF9BFA00073307D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		5DF2A9E72CF9C2E90073307D /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5DF2A9E62CF9C2E90073307D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		5DF2A9E92CF9C2E90073307D /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5DF2A9E62CF9C2E90073307D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
