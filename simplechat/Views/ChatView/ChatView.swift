@@ -14,7 +14,7 @@ struct ChatView: View {
         VStack {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 8) {
-                    ForEach(chatViewModel.mockData) { message in
+                    ForEach(chatViewModel.messages) { message in
                         MessageView(message: message)
                     }
                 }
@@ -24,7 +24,13 @@ struct ChatView: View {
                     .padding()
                 Button {
                     if text.count > 2 {
-                        chatViewModel.sendMessage(text: text)
+                        chatViewModel.sendMessage(text: text) { success in
+                            if success {
+                                print("succeed in sending message")
+                            } else {
+                                print("error sending message")
+                            }
+                        }
                         text = ""
                     }
                 } label: {

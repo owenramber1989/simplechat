@@ -38,7 +38,7 @@ extension UIApplication {
     }
 }
 
-class AuthManager {
+final class AuthManager {
     
     static let shared = AuthManager()
     

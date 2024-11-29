@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct Message : Decodable, Identifiable {
-    let id: UUID
+    let id = UUID()
     let uid: String
     let text: String
-    let photoURL: String
+    let photoURL: String?
     let createdAt: Date
     
     func isFromCurrentUser() -> Bool {

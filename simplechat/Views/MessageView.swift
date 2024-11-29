@@ -49,6 +49,6 @@ struct MessageView: View {
 }
 
 #Preview {
-    MessageView(message: Message(id: UUID(), uid: "123", text: "我是明日香", photoURL: "", createdAt: Date()))
+    MessageView(message: Message(uid: "123", text: "我是明日香", photoURL: "", createdAt: Date()))
 }
 
