@@ -79,4 +79,15 @@ class AuthManager {
             }
         }
     }
+    
+    func signOut() throws {
+        try auth.signOut()
+    }
+    
+    func getCurrentUser() -> SimpleChatUser? {
+        guard let authUser = auth.currentUser else {
+            return nil
+        }
+        return SimpleChatUser(uid: authUser.uid, userName: authUser.displayName ?? "Unknown", email: authUser.email, photoURL: authUser.photoURL?.absoluteString)
+    }
 }

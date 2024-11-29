@@ -19,13 +19,21 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        print("sign out")
+                        do {
+                            try AuthManager.shared.signOut()
+                            showSignIn = true
+                        } catch {
+                            print("error signing out")
+                        }
                     } label: {
                         Text("Sign Out")
                             .foregroundColor(.red)
                     }
                 }
             }
+        }
+        .onAppear {
+            showSignIn = AuthManager.shared.getCurrentUser() == nil
         }
         .fullScreenCover(isPresented: $showSignIn) {
             SignInView(showSignIn: $showSignIn)
