@@ -24,4 +24,11 @@ struct Message : Decodable, Identifiable {
             return false
         }
     }
+    
+    func fetchPhotoURL() -> URL? {
+        guard let photoURLString = photoURL, let url = URL(string: photoURLString) else {
+            return nil
+        }
+        return url
+    }
 }

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D8ABA9A2CFA3800003FC98D /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 5D8ABA992CFA3800003FC98D /* SQLite */; };
+		5D8E5AD32CFB2497001D6695 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5D8E5AD22CFB2497001D6695 /* SDWebImageSwiftUI */; };
 		5DF2A9D82CF9BFA00073307D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5DF2A9D72CF9BFA00073307D /* FirebaseAuth */; };
 		5DF2A9DA2CF9BFA00073307D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5DF2A9D92CF9BFA00073307D /* FirebaseFirestore */; };
 		5DF2A9DC2CF9BFA00073307D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 5DF2A9DB2CF9BFA00073307D /* FirebaseStorage */; };
@@ -74,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D8ABA9A2CFA3800003FC98D /* SQLite in Frameworks */,
+				5D8E5AD32CFB2497001D6695 /* SDWebImageSwiftUI in Frameworks */,
 				5DF2A9EA2CF9C2E90073307D /* GoogleSignInSwift in Frameworks */,
 				5DF2A9D82CF9BFA00073307D /* FirebaseAuth in Frameworks */,
 				5DF2A9E82CF9C2E90073307D /* GoogleSignIn in Frameworks */,
@@ -100,12 +100,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D8E5AD12CFB248C001D6695 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5DF2A94B2CF8A3CA0073307D = {
 			isa = PBXGroup;
 			children = (
 				5DF2A9562CF8A3CA0073307D /* simplechat */,
 				5DF2A9672CF8A3CC0073307D /* simplechatTests */,
 				5DF2A9712CF8A3CC0073307D /* simplechatUITests */,
+				5D8E5AD12CFB248C001D6695 /* Frameworks */,
 				5DF2A9552CF8A3CA0073307D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -145,7 +153,7 @@
 				5DF2A9DB2CF9BFA00073307D /* FirebaseStorage */,
 				5DF2A9E72CF9C2E90073307D /* GoogleSignIn */,
 				5DF2A9E92CF9C2E90073307D /* GoogleSignInSwift */,
-				5D8ABA992CFA3800003FC98D /* SQLite */,
+				5D8E5AD22CFB2497001D6695 /* SDWebImageSwiftUI */,
 			);
 			productName = simplechat;
 			productReference = 5DF2A9542CF8A3CA0073307D /* simplechat.app */;
@@ -232,7 +240,7 @@
 			packageReferences = (
 				5DF2A9D62CF9BFA00073307D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				5DF2A9E62CF9C2E90073307D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
-				5D8ABA982CFA3800003FC98D /* XCRemoteSwiftPackageReference "SQLite.swift" */,
+				5D8E5AD02CFB106F001D6695 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5DF2A9552CF8A3CA0073307D /* Products */;
@@ -597,20 +605,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5D8ABA982CFA3800003FC98D /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
+		5D8E5AD02CFB106F001D6695 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.15.3;
+				branch = master;
+				kind = branch;
 			};
 		};
 		5DF2A9D62CF9BFA00073307D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
-				kind = exactVersion;
-				version = 10.5.0;
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.5.0;
 			};
 		};
 		5DF2A9E62CF9C2E90073307D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
@@ -624,10 +632,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5D8ABA992CFA3800003FC98D /* SQLite */ = {
+		5D8E5AD22CFB2497001D6695 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5D8ABA982CFA3800003FC98D /* XCRemoteSwiftPackageReference "SQLite.swift" */;
-			productName = SQLite;
+			package = 5D8E5AD02CFB106F001D6695 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 		5DF2A9D72CF9BFA00073307D /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;

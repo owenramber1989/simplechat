@@ -1,5 +1,5 @@
 {
-  "originHash" : "01e9b21a07e490630a2c8fe8c36867a91a1f57208917dcd1cc3ac576a5ec452b",
+  "originHash" : "6cf54f51871fbff6d56248c65505803629fca96570170b42f52fdf3c7bec5ca5",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -137,12 +137,21 @@
       }
     },
     {
-      "identity" : "sqlite.swift",
+      "identity" : "sdwebimage",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/stephencelis/SQLite.swift.git",
+      "location" : "https://github.com/SDWebImage/SDWebImage.git",
       "state" : {
-        "revision" : "a95fc6df17d108bd99210db5e8a9bac90fe984b8",
-        "version" : "0.15.3"
+        "revision" : "10d06f6a33bafae8c164fbfd1f03391f6d4692b3",
+        "version" : "5.20.0"
+      }
+    },
+    {
+      "identity" : "sdwebimageswiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/SDWebImageSwiftUI.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "451c6dfd5ecec2cf626d1d9ca81c2d4a60355172"
       }
     },
     {

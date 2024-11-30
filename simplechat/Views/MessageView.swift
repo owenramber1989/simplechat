@@ -6,13 +6,13 @@
 //
 
 import SwiftUI
-
+import SDWebImageSwiftUI
 
 
 struct MessageView: View {
     var message: Message
     var body: some View {
-        if !message.isFromCurrentUser() {
+        if message.isFromCurrentUser() {
             HStack(spacing: 2) {
                 HStack {
                     Text(message.text)
@@ -22,20 +22,38 @@ struct MessageView: View {
                 }
                 .frame(maxWidth: 250, alignment: .trailing)
                 
-                
-                Image("asukaicon")
-                    .resizable()  // 使图片可调整大小
-                    .frame(width: 60, height: 60, alignment: .top)
-                    .cornerRadius(30)
-                    .padding(.leading)
+                if let photoURL = message.fetchPhotoURL() {
+                    WebImage(url: photoURL)
+                        .resizable()  // 使图片可调整大小
+                        .frame(width: 60, height: 60, alignment: .top)
+                        .cornerRadius(30)
+                        .padding(.leading)
+                } else {
+                    Image(systemName: "person.circle.fill")
+                        .resizable()  // 使图片可调整大小
+                        .frame(width: 36, height: 36, alignment: .top)
+                        .cornerRadius(18)
+                        .padding(.leading)
+                        .foregroundColor(.gray)
+                }
             }
             .frame(maxWidth: 300,alignment: .leading)
         } else {
             HStack {
-                Image(systemName: "person")
-                    .frame(maxWidth: 32, alignment: .top)
-                    .padding(.bottom, 16)
-                    .padding(.trailing, 4)
+                if let photoURL = message.fetchPhotoURL() {
+                    WebImage(url: photoURL)
+                        .resizable()  // 使图片可调整大小
+                        .frame(width: 60, height: 60, alignment: .top)
+                        .cornerRadius(30)
+                        .padding(.leading)
+                } else {
+                    Image(systemName: "person.circle.fill")
+                        .resizable()  // 使图片可调整大小
+                        .frame(width: 36, height: 36, alignment: .top)
+                        .cornerRadius(18)
+                        .padding(.leading)
+                        .foregroundColor(.gray)
+                }
                 HStack {
                     Text(message.text)
                         .padding()
