@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D8ABA9A2CFA3800003FC98D /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 5D8ABA992CFA3800003FC98D /* SQLite */; };
 		5DF2A9D82CF9BFA00073307D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5DF2A9D72CF9BFA00073307D /* FirebaseAuth */; };
 		5DF2A9DA2CF9BFA00073307D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5DF2A9D92CF9BFA00073307D /* FirebaseFirestore */; };
 		5DF2A9DC2CF9BFA00073307D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 5DF2A9DB2CF9BFA00073307D /* FirebaseStorage */; };
@@ -73,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D8ABA9A2CFA3800003FC98D /* SQLite in Frameworks */,
 				5DF2A9EA2CF9C2E90073307D /* GoogleSignInSwift in Frameworks */,
 				5DF2A9D82CF9BFA00073307D /* FirebaseAuth in Frameworks */,
 				5DF2A9E82CF9C2E90073307D /* GoogleSignIn in Frameworks */,
@@ -143,6 +145,7 @@
 				5DF2A9DB2CF9BFA00073307D /* FirebaseStorage */,
 				5DF2A9E72CF9C2E90073307D /* GoogleSignIn */,
 				5DF2A9E92CF9C2E90073307D /* GoogleSignInSwift */,
+				5D8ABA992CFA3800003FC98D /* SQLite */,
 			);
 			productName = simplechat;
 			productReference = 5DF2A9542CF8A3CA0073307D /* simplechat.app */;
@@ -229,6 +232,7 @@
 			packageReferences = (
 				5DF2A9D62CF9BFA00073307D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				5DF2A9E62CF9C2E90073307D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				5D8ABA982CFA3800003FC98D /* XCRemoteSwiftPackageReference "SQLite.swift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5DF2A9552CF8A3CA0073307D /* Products */;
@@ -431,6 +435,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"simplechat/Preview Content\"";
+				DEVELOPMENT_TEAM = K6GNXZ54V6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = simplechat/Info.plist;
@@ -460,6 +465,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"simplechat/Preview Content\"";
+				DEVELOPMENT_TEAM = K6GNXZ54V6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = simplechat/Info.plist;
@@ -591,12 +597,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5D8ABA982CFA3800003FC98D /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.15.3;
+			};
+		};
 		5DF2A9D62CF9BFA00073307D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 11.5.0;
+				kind = exactVersion;
+				version = 10.5.0;
 			};
 		};
 		5DF2A9E62CF9C2E90073307D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
@@ -610,6 +624,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5D8ABA992CFA3800003FC98D /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5D8ABA982CFA3800003FC98D /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
+		};
 		5DF2A9D72CF9BFA00073307D /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5DF2A9D62CF9BFA00073307D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
