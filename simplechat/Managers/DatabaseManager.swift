@@ -37,6 +37,7 @@ final class DatabaseManager {
                 let msg = Message(uid: uid, text: text, photoURL: photoURL, createdAt: createdAt.dateValue())
                 messages.append(msg)
             }
+            completion(.success(messages))
         }
     }
     

@@ -15,6 +15,13 @@ struct Message : Decodable, Identifiable {
     let createdAt: Date
     
     func isFromCurrentUser() -> Bool {
-        return true
+        guard let currUser = AuthManager.shared.getCurrentUser() else {
+            return false
+        }
+        if(currUser.uid == uid) {
+            return true
+        } else {
+            return false
+        }
     }
 }

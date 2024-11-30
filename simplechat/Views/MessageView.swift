@@ -12,15 +12,16 @@ import SwiftUI
 struct MessageView: View {
     var message: Message
     var body: some View {
-        if message.isFromCurrentUser() {
-            HStack(spacing: 15) {
+        if !message.isFromCurrentUser() {
+            HStack(spacing: 2) {
                 HStack {
                     Text(message.text)
                         .padding()
+                        .background(Color(uiColor: .systemBlue))
+                        .cornerRadius(20)
                 }
-                .frame(maxWidth: 250, alignment: .topLeading)
-                .background(Color(uiColor: .systemBlue))
-                .cornerRadius(20)
+                .frame(maxWidth: 250, alignment: .trailing)
+                
                 
                 Image("asukaicon")
                     .resizable()  // 使图片可调整大小
@@ -38,10 +39,10 @@ struct MessageView: View {
                 HStack {
                     Text(message.text)
                         .padding()
+                        .background(Color(uiColor: .systemGray5))
+                        .cornerRadius(20)
                 }
                 .frame(maxWidth: 250, alignment: .leading)
-                .background(Color(uiColor: .lightGray))
-                .cornerRadius(20)
             }
             .frame(maxWidth: 360,alignment: .leading)
         }
