@@ -13,11 +13,12 @@ struct SignInView: View {
         VStack(spacing: 20) {
             Image("asuka")
                 .resizable()
-                .frame(maxWidth: 400, maxHeight: 700, alignment: .top)
+                .frame(maxWidth: 400, maxHeight: 450)
                 .scaledToFill()
                 .clipped()
-            Spacer()
-            VStack(spacing: 10) {
+                .padding(.top, 70)
+            Spacer(minLength: 80)
+            VStack(spacing: 30) {
                 Button {
                     AuthManager.shared.signInWithApple { result in
                         switch result {
@@ -34,7 +35,7 @@ struct SignInView: View {
                         .overlay {
                             RoundedRectangle(cornerRadius: 20)
                                 .stroke()
-                                .foregroundColor(.primary)
+                                .foregroundColor(.clear)
                                 .frame(width: 300)
                         }
                 }
@@ -54,7 +55,7 @@ struct SignInView: View {
                         .overlay {
                             RoundedRectangle(cornerRadius: 20)
                                 .stroke()
-                                .foregroundColor(.primary)
+                                .foregroundColor(.clear)
                                 .frame(width: 300)
                         }
                 }

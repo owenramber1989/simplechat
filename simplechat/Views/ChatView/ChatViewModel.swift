@@ -26,7 +26,7 @@ class ChatViewModel: ObservableObject{
             print("user is offline")
             return
         }
-        let msg = Message(uid: user.uid, text: text, photoURL: user.photoURL, createdAt: Date(), imageData: imageData)
+        let msg = Message(uid: user.email ?? "anyone@gmail.com", text: text, photoURL: user.photoURL, createdAt: Date(), imageData: imageData)
         DatabaseManager.shared.sendMessageToDatabase(message: msg) { success in
             if success {
                 print("ok")

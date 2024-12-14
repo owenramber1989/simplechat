@@ -27,7 +27,7 @@ struct Message : Decodable, Identifiable, Equatable, Hashable {
         guard let currUser = AuthManager.shared.getCurrentUser() else {
             return false
         }
-        if(currUser.uid == uid) {
+        if(currUser.email == uid) {
             return true
         } else {
             return false
