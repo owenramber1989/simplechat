@@ -18,7 +18,7 @@ final class DatabaseManager {
     let database = Firestore.firestore()
     
     func fetchMessage(completion: @escaping (Result<[Message], fetchMessagesError>) -> Void) {
-        database.collection("messages").order(by: "createdAt", descending: false).limit(to: 25).getDocuments { snapshot, error in
+        database.collection("messages").order(by: "createdAt", descending: true).limit(to: 20).getDocuments { snapshot, error in
             guard let snapshot = snapshot, error == nil else {
                 completion(.failure(.snapshotError))
                 return
@@ -38,6 +38,8 @@ final class DatabaseManager {
                 let msg = Message(uid: uid, text: text, photoURL: photoURL, createdAt: createdAt.dateValue(), imageData: imageData)
                 messages.append(msg)
             }
+            
+            messages.sort(by: { $0.createdAt < $1.createdAt })
             completion(.success(messages))
         }
     }

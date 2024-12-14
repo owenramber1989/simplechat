@@ -27,9 +27,13 @@ struct Message : Decodable, Identifiable, Equatable, Hashable {
         guard let currUser = AuthManager.shared.getCurrentUser() else {
             return false
         }
+        print("curruser email is " + (currUser.email ?? ""))
+        print("uid is " + (currUser.email ?? ""))
         if(currUser.email == uid) {
+            print("the same 本人发言")
             return true
         } else {
+            print("他人发言")
             return false
         }
     }

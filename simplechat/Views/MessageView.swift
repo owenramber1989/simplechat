@@ -14,7 +14,6 @@ struct MessageView: View {
     var body: some View {
         let isCurrentUser = message.isFromCurrentUser()
         let alignment: Alignment = isCurrentUser ? .trailing : .leading
-        let backgroundColor: Color = isCurrentUser ? Color(uiColor: .systemBlue) : Color(uiColor: .systemGray5)
         if  isCurrentUser {
             HStack(spacing: 2) {
                 HStack {
@@ -60,7 +59,7 @@ struct MessageView: View {
                             .padding()
                             .background(Color.blue.opacity(0.2))
                             .cornerRadius(20)
-                            .foregroundColor(.white)
+                            .foregroundColor(.primary)
                     }
                 }
                 .frame(maxWidth: 250, alignment: alignment)
