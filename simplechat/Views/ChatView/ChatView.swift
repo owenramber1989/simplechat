@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct ChatView: View {
     @StateObject var chatViewModel = ChatViewModel()
+    @State private var selectedItem: PhotosPickerItem? = nil
+    @State private var selectedImageData: Data? = nil
     @State var text = ""
-    
+    @FocusState private var isTextFieldFocused: Bool
     var body: some View {
         VStack {
             ScrollViewReader { scrollView in
@@ -27,11 +30,26 @@ struct ChatView: View {
                 }
             }
             HStack {
+                PhotosPicker(selection: $selectedItem, matching: .images) {
+                    Image(systemName: "photo")
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(.pink)
+                        .cornerRadius(30)
+                        .padding(.trailing)
+                }
+                .onChange(of: selectedItem) { newItem in
+                    Task {
+                        if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                            selectedImageData = data
+                        }
+                    }
+                }
                 TextField("良言一句三冬暖", text: $text, axis: .vertical)
                     .padding()
                 Button {
-                    if text.count > 2 {
-                        chatViewModel.sendMessage(text: text) { success in
+                    if text.count > 1 {
+                        chatViewModel.sendMessage(text: text, imageData: selectedImageData ?? Data()) { success in
                             if success {
                                 print("succeed in sending message")
                             } else {

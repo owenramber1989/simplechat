@@ -12,15 +12,30 @@ import SDWebImageSwiftUI
 struct MessageView: View {
     var message: Message
     var body: some View {
+        let isCurrentUser = message.isFromCurrentUser()
+        let alignment: Alignment = isCurrentUser ? .trailing : .leading
+        let backgroundColor: Color = isCurrentUser ? Color(uiColor: .systemBlue) : Color(uiColor: .systemGray5)
         if  message.isFromCurrentUser() {
             HStack(spacing: 2) {
                 HStack {
-                    Text(message.text)
-                        .padding()
-                        .background(Color(uiColor: .systemBlue))
-                        .cornerRadius(20)
+                    if let img = message.image {
+                        img
+                            .resizable()
+                            .scaledToFit()
+                            .cornerRadius(10)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.gray, lineWidth: 1)
+                            )
+                    } else if let text = message.text, !text.isEmpty {
+                        Text(text)
+                            .padding()
+                            .background(backgroundColor)
+                            .cornerRadius(20)
+                            .foregroundColor(.white)
+                    }
                 }
-                .frame(maxWidth: 250, alignment: .trailing)
+                .frame(maxWidth: 250, alignment: alignment)
                 
                 if let photoURL = message.fetchPhotoURL() {
                     WebImage(url: photoURL)
@@ -55,19 +70,30 @@ struct MessageView: View {
                         .foregroundColor(.gray)
                 }
                 HStack {
-                    Text(message.text)
-                        .padding()
-                        .background(Color(uiColor: .systemGray5))
-                        .cornerRadius(20)
+                    if let img = message.image {
+                        img
+                            .resizable()
+                            .scaledToFit()
+                            .cornerRadius(10)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.gray, lineWidth: 1)
+                            )
+                    } else if let text = message.text, !text.isEmpty {
+                        Text(text)
+                            .padding()
+                            .background(backgroundColor)
+                            .cornerRadius(20)
+                            .foregroundColor(.white)
+                    }
                 }
                 .frame(maxWidth: 250, alignment: .leading)
             }
-            .frame(maxWidth: 360,alignment: .leading)
+            .frame(maxWidth: 360,alignment: alignment)
         }
     }
 }
 
 #Preview {
-    MessageView(message: Message(uid: "123", text: "我是明日香", photoURL: "", createdAt: Date()))
 }
 

@@ -21,16 +21,19 @@ class ChatViewModel: ObservableObject{
             }
         }
     }
-    func sendMessage(text: String, completion: @escaping (Bool) -> Void) {
+    func sendMessage(text: String, imageData: Data, completion: @escaping (Bool) -> Void) {
         guard let user = AuthManager.shared.getCurrentUser() else {
+            print("user is offline")
             return
         }
-        let msg = Message(uid: user.uid, text: text, photoURL: user.photoURL, createdAt: Date())
+        let msg = Message(uid: user.uid, text: text, photoURL: user.photoURL, createdAt: Date(), imageData: imageData)
         DatabaseManager.shared.sendMessageToDatabase(message: msg) { success in
             if success {
+                print("ok")
                 self.messages.append(msg)
                 completion(true)
             } else {
+                print("not cool")
                 completion(false)
             }
         }
