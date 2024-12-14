@@ -10,12 +10,19 @@ import SwiftUI
 struct ChatView: View {
     @StateObject var chatViewModel = ChatViewModel()
     @State var text = ""
+    
     var body: some View {
         VStack {
-            ScrollView(showsIndicators: false) {
-                VStack(spacing: 8) {
-                    ForEach(chatViewModel.messages) { message in
-                        MessageView(message: message)
+            ScrollViewReader { scrollView in
+                ScrollView(showsIndicators: false) {
+                    VStack(spacing: 8) {
+                        ForEach(Array(chatViewModel.messages.enumerated()), id: \.element) { idx, message in
+                            MessageView(message: message)
+                                .id(idx)
+                        }
+                        .onChange(of: chatViewModel.messages) { newValue in
+                            scrollView.scrollTo(chatViewModel.messages.count - 1, anchor: .bottom)
+                        }
                     }
                 }
             }

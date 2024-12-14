@@ -19,7 +19,14 @@ struct SignInView: View {
             Spacer()
             VStack(spacing: 10) {
                 Button {
-                    print("apple")
+                    AuthManager.shared.signInWithApple { result in
+                        switch result {
+                        case .success(_):
+                            showSignIn = false
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                        }
+                    }
                 } label: {
                     Text("Sign in with Apple")
                         .padding()

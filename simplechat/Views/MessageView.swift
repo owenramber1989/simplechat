@@ -12,7 +12,7 @@ import SDWebImageSwiftUI
 struct MessageView: View {
     var message: Message
     var body: some View {
-        if message.isFromCurrentUser() {
+        if  message.isFromCurrentUser() {
             HStack(spacing: 2) {
                 HStack {
                     Text(message.text)

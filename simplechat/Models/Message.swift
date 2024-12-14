@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Message : Decodable, Identifiable {
+struct Message : Decodable, Identifiable, Equatable, Hashable {
     let id = UUID()
     let uid: String
     let text: String
