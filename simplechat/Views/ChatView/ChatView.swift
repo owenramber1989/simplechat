@@ -14,6 +14,7 @@ struct ChatView: View {
     @State private var selectedImageData: Data? = nil
     @State var text = ""
     @FocusState private var isTextFieldFocused: Bool
+    @State private var keyboardHeight: CGFloat = 0
     var body: some View {
         VStack {
             ScrollViewReader { scrollView in
@@ -28,6 +29,7 @@ struct ChatView: View {
                         }
                     }
                 }
+                .padding(.bottom, 5)
             }
             HStack {
                 PhotosPicker(selection: $selectedItem, matching: .images) {
@@ -49,9 +51,9 @@ struct ChatView: View {
                 TextField("良言一句三冬暖", text: $text, axis: .vertical)
                     .padding()
                     .focused($isTextFieldFocused)
-                
+                    
                 Button(action: {
-                    if text.count > 1 {
+                    if text.count > 0 || selectedImageData != nil {
                         chatViewModel.sendMessage(text: text, imageData: selectedImageData ?? Data()) { success in
                             if success {
                                 print("succeed in sending message")
@@ -61,6 +63,8 @@ struct ChatView: View {
                         }
                         text = ""
                         isTextFieldFocused = false
+                        selectedItem = nil
+                        selectedImageData = nil
                     }
                 }) {
                     Text("Send")
@@ -77,6 +81,7 @@ struct ChatView: View {
             }
             .background(Color(uiColor: .systemGray6))
         }
+        .animation(.default, value: keyboardHeight)
     }
 }
 
