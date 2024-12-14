@@ -45,6 +45,7 @@ struct ChatView: View {
                         }
                     }
                 }
+                .buttonStyle(PlainButtonStyle())
                 TextField("良言一句三冬暖", text: $text, axis: .vertical)
                     .padding()
                     .focused($isTextFieldFocused)
@@ -69,6 +70,9 @@ struct ChatView: View {
                         .cornerRadius(30)
                         .padding(.trailing)
                 }
+                .buttonStyle(PlainButtonStyle())
+                .background(Color.clear)
+                .contentShape(Rectangle())
                 .padding()
             }
             .background(Color(uiColor: .systemGray6))
