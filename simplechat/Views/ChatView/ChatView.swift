@@ -47,7 +47,9 @@ struct ChatView: View {
                 }
                 TextField("良言一句三冬暖", text: $text, axis: .vertical)
                     .padding()
-                Button {
+                    .focused($isTextFieldFocused)
+                
+                Button(action: {
                     if text.count > 1 {
                         chatViewModel.sendMessage(text: text, imageData: selectedImageData ?? Data()) { success in
                             if success {
@@ -57,12 +59,12 @@ struct ChatView: View {
                             }
                         }
                         text = ""
+                        isTextFieldFocused = false
                     }
-                } label: {
+                }) {
                     Text("Send")
                         .padding()
                         .foregroundColor(.white)
-                        .background(.pink)
                         .background(.cyan)
                         .cornerRadius(30)
                         .padding(.trailing)
