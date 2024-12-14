@@ -12,27 +12,28 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                ChatView()
-            }
-            .navigationTitle("chatroom")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        do {
-                            try AuthManager.shared.signOut()
-                            showSignIn = true
-                        } catch {
-                            print("error signing out")
+                if showSignIn {
+                    SignInView(showSignIn: $showSignIn)
+                } else {
+                    ChatView()
+                        .navigationTitle("chatroom")
+                        .navigationBarTitleDisplayMode(.inline)
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                Button {
+                                    do {
+                                        try AuthManager.shared.signOut()
+                                        showSignIn = true
+                                    } catch {
+                                        print("error signing out")
+                                    }
+                                } label: {
+                                    Text("Sign Out")
+                                        .foregroundColor(.red)
+                                }
+                            }
                         }
-                    } label: {
-                        Text("Sign Out")
-                            .foregroundColor(.red)
-                    }
                 }
-            }
-            .fullScreenCover(isPresented: $showSignIn) {
-                SignInView(showSignIn: $showSignIn)
             }
         }
         .onAppear {
