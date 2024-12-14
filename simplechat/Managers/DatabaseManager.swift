@@ -45,7 +45,6 @@ final class DatabaseManager {
     }
     
     func sendMessageToDatabase(message: Message, completion: @escaping (Bool) -> Void) {
-        print("in db the uid is " + message.uid)
         let data = [
             "text": message.text ?? "",
             "uid": message.uid,
